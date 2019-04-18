@@ -2,35 +2,32 @@
 <html>
 <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+<script>
+  AFRAME.registerComponent('modify-materials', {
+    init: function () {
+      // Wait for model to load.
+      this.el.addEventListener('model-loaded', () => {
+        // Grab the mesh / scene.
+        const obj = this.el.getObject3D('mesh');
+        // Go over the submeshes and modify materials we want.
+        obj.traverse(node => {
+          if (node.name.indexOf('ship') !== -1) {
+            node.material.color.set('red');
+          }
+        });
+      });
+    }
+  });
+</script>
   <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs>
+    <a-scene embedded arjs background="color: #ECECEC">
+      <a-assets>
+        <a-asset-item id="adamHead" src="https://github.com/Rn4rc1s0/ARWeb/tree/master/adamHead"></a-asset-item>
+      </a-assets>
       <a-marker preset="hiro">
-          <script>
-            AFRAME.registerComponent('modify-materials', {
-              init: function () {
-              // Wait for model to load.
-              this.el.addEventListener('model-loaded', () => {
-              // Grab the mesh / scene.
-              const obj = this.el.getObject3D('mesh');
-              // Go over the submeshes and modify materials we want.
-              obj.traverse(node => {
-              if (node.name.indexOf('ship') !== -1) {
-                node.material.color.set('red');
-                }
-               });
-              });
-             }       
-            });
-          </script>
-
-          <a-scene background="color: #ECECEC">
-          <a-assets>
-          <a-asset-item id="cityModel" src="https://cdn.aframe.io/test-models/models/glTF-2.0/virtualcity/VC.gltf"></a-asset-item>
-          </a-assets>
-          <a-entity gltf-model="#cityModel" modify-materials></a-entity>
-          </a-scene>
-          </a-marker>
-          <a-entity camera></a-entity>
-          </a-scene>
+          <a-entity gltf-model="#adamHead" modify-materials></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
   </body>
 </html>
