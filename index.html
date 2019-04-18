@@ -20,13 +20,12 @@
   });
 </script>
   <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs background="color: #ECECEC">
+    <a-scene embedded arjs>
       <a-assets>
         <a-asset-item id="adamHead" src="https://sdn.rawgit/Rn4rc1s0/ARWeb/master/adamHead/adamHead.gltf"></a-asset-item>
       </a-assets>
-      <a-marker preset="hiro">
-          <a-entity gltf-model="#adamHead" modify-materials></a-entity>
-      </a-marker>
+      <a-gltf-model src="#adamHead" modify-materials></a-gltf-model>
+      <a-marker preset="hiro"></a-marker>
       <a-entity camera></a-entity>
     </a-scene>
   </body>
