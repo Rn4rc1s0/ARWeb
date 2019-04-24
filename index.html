@@ -98,7 +98,7 @@ AFRAME.registerComponent('animation-control', {
                          curveSegments: 12; 
                          size: 1.2; 
                          height: 0;"
-          material="color:lavenderblush; metalness:1; roughness: 0; sphericalEnvMap: #pink;"
+          material="color:lavenderblush; metalness:1; roughness: 0;"
         ></a-entity>
         
         <a-entity id= "atk1" 
@@ -117,8 +117,7 @@ AFRAME.registerComponent('animation-control', {
                                  height: 0.5;" 
                   material="color:pink; 
                             metalness:0.9; 
-                            roughness: 0.05; 
-                            sphericalEnvMap: #chrome;">
+                            roughness: 0.05;">
         </a-entity> 
         
         <a-entity id= "atk2" 
@@ -135,8 +134,7 @@ AFRAME.registerComponent('animation-control', {
                                  height: 0.5;"   
                   material="color:pink; 
                             metalness:0.9; 
-                            roughness: 0.05; 
-                            sphericalEnvMap: #chrome;">
+                            roughness: 0.05;">
         </a-entity> 
         
         <a-entity id= "move" 
@@ -153,7 +151,7 @@ AFRAME.registerComponent('animation-control', {
                                  curveSegments: 1; 
                                  size: 1; 
                                  height: 0.5;" 
-                  material="color:pink; metalness:0.9; roughness: 0.05; sphericalEnvMap: #chrome;"></a-entity> 
+                  material="color:pink; metalness:0.9; roughness: 0.05;"></a-entity> 
         
         <a-entity id="idle" 
                   class="clickable" 
@@ -171,8 +169,7 @@ AFRAME.registerComponent('animation-control', {
                                  height: 0.5;" 
                   material="color:pink; 
                             metalness:0.9; 
-                            roughness: 0.05; 
-                            sphericalEnvMap: #chrome;">
+                            roughness: 0.05;">
         </a-entity> 
        </a-entity>
       </a-marker>
@@ -182,7 +179,7 @@ AFRAME.registerComponent('animation-control', {
     </a-scene>
      <script>   
         
-    //setTimeout(function(){ document.querySelector('#bot').setAttribute("animation-mixer","clip: jump; crossFadeDuration: .3"); },5000);
+    //setTimeout(function(){ document.querySelector('#leomon').setAttribute("animation-mixer","clip: idle; crossFadeDuration: .3"); },5000);
         
       </script>
 </body>
