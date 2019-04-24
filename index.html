@@ -73,10 +73,10 @@ AFRAME.registerComponent('animation-control', {
                 scale="0.6 0.6 0.6"
                 position="0 0 0"
                 rotation="0 0 0"
-                animation-mixer="clip: #win">       
+                animation-mixer="clip: #idle">       
             </a-entity>
         </a-marker>
-        <a-entity camera>
+        
           <a-entity 
             raycaster="objects: .clickable"
             cursor="fuse: true; fuseTimeout: 500"
@@ -88,7 +88,7 @@ AFRAME.registerComponent('animation-control', {
           <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
                fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
           </a-entity>
-        </a-entity>
+        
         <a-entity
           rotation="0 0 0"
           position="-2 8 0"
@@ -179,6 +179,7 @@ AFRAME.registerComponent('animation-control', {
       <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
       <a-entity light="color: #8498b2; intensity: 0.5" position="-5 5 15"></a-entity>
       <a-entity light="color: white; type: ambient;"></a-entity>    
+      <a-entity camera></a-entity>
     </a-scene>
      <script>   
         
