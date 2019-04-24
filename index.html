@@ -24,6 +24,7 @@
         </a-assets>
         <a-marker preset="hiro">
 
+<<<<<<< HEAD
             <a-entity gltf-model="#adamHead" scale="0.2 0.2 0.2" position="0 1 0" ></a-entity>
                 <script>AFRAME.registerComponent('rotation-reader', {
                         /**
@@ -33,6 +34,9 @@
                         tick: (function () {
                             var position = new THREE.Vector3();
                             var rotation = new THREE.Euler();
+=======
+            <a-entity gltf-model="#adamHead" scale="0.2 0.2 0.2" rotation="180 -90 -180" position="0 1 0" ></a-entity>
+>>>>>>> 8662048544529fcec88bd76ad138612ef83e37f7
 
                             return function () {
                         this.el.object3D.getWorldPosition(position);
