@@ -4,63 +4,6 @@
 <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-<script src="js/aframe-extras.js"></script>
-<script src="js/aframe-text-geometry-component.min.js"></script>
-
-<script>
-    
-    var prevData = "clip: idle; crossFadeDuration: .3";;
-    var listenerAdded = false;
-    var scene = document.querySelector('a-scene');  
-    var playOnce = false; 
- 
-   
-    
-        
-AFRAME.registerComponent('animation-control', {
-  schema: {default: ''},
-  init() {
-     
-    const leomon = document.querySelector('#leomon'); 
-    var attack1But = document.querySelector('#attack1');
-    var moveBut = document.querySelector('#move');
-    var winBut = document.querySelector('#win');
-    var idleBut = document.querySelector('#idle');  
-    var scene = document.querySelector('a-scene');
-    
-   
-  
-  this.el.addEventListener('click', () => {
-        
-      if (this.el != attack1But){  
-        bot.setAttribute("animation-mixer",this.data); 
-         scene.removeEventListener('animation-loop', attack1Trans);
-         prevData = this.data;
-         
-     }
-        
-     if (this.el == attack1But) {
-        
-        bot.setAttribute("animation-mixer",this.data); 
-        var attack1Trans = function () {
-            scene.removeEventListener('animation-loop',attack1Trans); 
-            bot.setAttribute("animation-mixer",prevData);
-            console.log("scene ="+scene); 
-            console.log("fire")
-            };  
-        console.log("prev data from attack button = "+prevData); 
-       setTimeout (function(){scene.addEventListener('animation-loop',attack1Trans);},500);     
-     
-     }
-        
-     
-    }); 
-      
-      
-      
-  }
-});
-</script>
 </head>
 <body style="margin : 0px; overflow: hidden;">
     <a-scene stats embedded arjs="sourceType: webcam;">
@@ -72,134 +15,14 @@ AFRAME.registerComponent('animation-control', {
             <!-- <a-entity gltf-model="#adamHead" scale="0.6 0.6 0.6" rotation="90 0 0" position="0 0 0" ></a-entity>-->
             <a-entity gltf-model="#leomon"
                 cursor-listener
-                scale="3.5 3.5 3.5"
-                position="0 1 -2.5"
-                rotation="0 0 0"
+                scale="0.6 0.6 0.6"
+                position="0 0 0"
+                rotation="90 0 0"
                 animation-mixer="clip: idle";>       
             </a-entity>
         </a-marker>
-        <a-entity camera>
-            <a-entity 
-                raycaster="objects: .clickable"
-                cursor="fuse: true; fuseTimeout: 500"
-                position="0 0 -1"
-                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-                material="color: green; shader: flat">
-            <a-animation begin="click" easing="ease-in" attribute="scale"
-               fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
-            <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
-               fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
-            </a-entity>
-        </a-camera>
-        <a-sky src="#sky" rotation="0 -90 0"></a-sky>
-        <a-entity position="-4 1 -6" rotation="5 0 0">
+        <a-entity camera></a-entity>
             
-        </a-entity>
-        <a-entity
-          rotation="0 0 0"
-          position="-2 8 0"
-          text-geometry="value: Character Controls; 
-                        font: #dawningFont; 
-                        bevelEnabled: true; 
-                        bevelSize: 0.05; 
-                        bevelThickness: 0.05; 
-                        curveSegments: 12; 
-                        size: 1.2; 
-                        height: 0;"
-          material="color:lavenderblush; 
-                    metalness:1; 
-                    roughness: 0; 
-                    sphericalEnvMap: #black;">
-        </a-entity>
-        
-        <a-entity id= "win" 
-                  class="clickable" 
-                  animation-control="clip: win; crossFadeDuration: .3" 
-                  position="1 3 4" 
-                  rotation="0 0 0" 
-                  scale="0.5 .6 .3" 
-                  text-geometry="value: WIN; 
-                                 font: #exoFont; 
-                                 bevelEnabled: true; 
-                                 bevelSize: 0.1; 
-                                 bevelThickness: 0.1; 
-                                 curveSegments: 1; size: 1; 
-                                 height: 0.5;" 
-                  material="color:black; 
-                            metalness:0.9; 
-                            roughness: 0.05; 
-                            sphericalEnvMap: #chrome;">
-        </a-entity> 
-        
-        <a-entity id= "move" 
-                  class="clickable" 
-                  animation-control="clip: move; crossFadeDuration: .3" 
-                  position="5.5 3 4" rotation="0 0 0" scale="0.5 .6 .3" 
-                  text-geometry="value: MOVE; 
-                                 font: #exoFont; 
-                                 bevelEnabled: true; 
-                                 bevelSize: 0.1; 
-                                 bevelThickness: 0.1; 
-                                 curveSegments: 1; 
-                                 size: 1; 
-                                 height: 0.5;" 
-                  material="color: black; 
-                            metalness:0.9; 
-                            roughness: 0.05; 
-                            sphericalEnvMap: #chrome;">
-        </a-entity> 
-        
-        <a-entity id= "attack1" 
-                  class="clickable" 
-                  animation-control="clip: attack1; crossFadeDuration: .3;" 
-                  position="5.5 4 4" 
-                  rotation="0 0 0" 
-                  scale="0.5 .6 .3" 
-                  text-geometry="value: JUMP; 
-                                 font: #exoFont; 
-                                 bevelEnabled: true; 
-                                 bevelSize: 0.1; 
-                                 bevelThickness: 0.1; 
-                                 curveSegments: 1; 
-                                 size: 1; height: 0.5;" 
-                  material="color:black; 
-                            metalness:0.9; 
-                            roughness: 0.05; 
-                            sphericalEnvMap: #chrome;">
-        </a-entity> 
-        
-        <a-entity id="idle" 
-                  class="clickable" 
-                  animation-control="clip: idle; crossFadeDuration: .3" 
-                  position="1 4 4" 
-                  rotation="0 0 0" 
-                  scale="0.5 .6 .3" 
-                  text-geometry="value: IDLE; 
-                                 font: #exoFont; 
-                                 bevelEnabled: true; 
-                                 bevelSize: 0.1; 
-                                 bevelThickness: 0.1; 
-                                 curveSegments: 1; 
-                                 size: 1; height: 0.5;" 
-                  material="color:black; 
-                            metalness:0.9; 
-                            roughness: 0.05; 
-                            sphericalEnvMap: #chrome;">
-        </a-entity>         
-        <a-entity
-          geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
-          material="src: #grid; 
-                    repeat: 10000 10000; 
-                    transparent: true;
-                    metalness:0.6; 
-                    roughness: 0.4; 
-                    sphericalEnvMap: #sky;">
-        </a-entity>
-        
-      <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>
-      <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
-      <a-entity light="color: #8498b2; intensity: 0.5" position="-5 5 15"></a-entity>
-      <a-entity light="color: white; type: ambient;"></a-entity>
     </a-scene>
 </body>
 
