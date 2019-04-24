@@ -1,7 +1,7 @@
 <!doctype HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
 <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -174,17 +174,8 @@ AFRAME.registerComponent('animation-control', {
                             roughness: 0.05; 
                             sphericalEnvMap: #chrome;">
         </a-entity> 
-       </a-entity> 
-        
-        <a-entity
-        geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
-        material="src: #grid; repeat: 10000 10000; transparent: true;metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
-        
-      <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>
-      <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
-      <a-entity light="color: #8498b2; intensity: 0.5" position="-5 5 15"></a-entity>
-      <a-entity light="color: white; type: ambient;"></a-entity>
-        </a-marker>
+       </a-entity>
+      </a-marker>
         
               
       <a-entity camera></a-entity>
