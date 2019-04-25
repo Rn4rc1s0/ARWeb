@@ -12,17 +12,16 @@
     
     <a-scene stats embedded arjs="sourceType: webcam;">
         <a-assets>
-            <a-asset-item id="leomon" src="https://raw.githubusercontent.com/Rn4rc1s0/ARWeb/master/leomon/scene.gltf"></a-asset-item>
+            <a-asset-item id="leomon" src="https://raw.githubusercontent.com/Rn4rc1s0/ARWeb/master/protolab/paulo_ficha.fbx"></a-asset-item>
         </a-assets>
         <a-text id="cylinderText" value="This is a cylinder" color="#FFF" visible="false" position="0 -0.55 0.55"
               geometry="primitive: plane; width: 1.75" material="color: #333"></a-text>
         <a-marker preset="hiro">            
-            <a-entity gltf-model="#leomon"
-                cursor-listener
+            <a-entity fbx-model="#leomon"
                 scale="1 1 1"
                 position="0 0 -1"
                 rotation="-90 0 0"
-                animation-mixer="clip: idle">       
+                >       
             </a-entity>
             
         </a-marker>
