@@ -9,11 +9,14 @@
     
     <a-scene stats embedded arjs="sourceType: webcam;">
         <a-assets>
-            <a-asset-item id="Paulo" src="https://raw.githubusercontent.com/Rn4rc1s0/ARWeb/master/protolab/paulo_ficha.gltf"></a-asset-item>
+            <a-asset-item id="Paulo_ficha" src="https://raw.githubusercontent.com/Rn4rc1s0/ARWeb/master/protolab/paulo_ficha.gltf"></a-asset-item>
+            <a-asset-item id="Paulo" src="https://raw.githubusercontent.com/Rn4rc1s0/ARWeb/master/protolab/paulo.gltf"></a-asset-item>
         </a-assets>
         
         <a-marker preset="hiro">            
-            <a-entity gltf-model="#Paulo" position="0 0 3" scale="0.07 0.07 0.07">       
+            <a-entity gltf-model="#Paulo" position="0 0 -1.5" scale="0.07 0.07 0.07">       
+            </a-entity>
+            <a-entity gltf-model="#Paulo_ficha" position="0 0 -1.5" scale="0.07 0.07 0.07">       
             </a-entity>
             
         </a-marker>
